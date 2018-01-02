@@ -138,7 +138,7 @@ hi LongLineWarning  guifg=NONE        guibg=#371F1C     gui=underline ctermfg=NO
 " ----------------------------------------------------------------------------
 exe "hi! Comment"         .s:fg_comment   .s:bg_none        .s:fmt_none
 
-exe "hi! Constant"        .s:fg_constant  .s:bg_none        .s:fmt_none
+exe "hi! Constant"        .s:fg_markup  .s:bg_none        .s:fmt_none
 exe "hi! String"          .s:fg_string    .s:bg_none        .s:fmt_none
 "   Character"
 "   Number"
