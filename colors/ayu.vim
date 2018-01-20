@@ -14,7 +14,7 @@ let g:colors_name = "ayu"
 
 let s:palette = {}
 
-let s:palette.bg        = {'dark': "#0F1419",  'light': "#FAFAFA",  'mirage': "#212733"}
+let s:palette.bg        = {'dark': "#0F1419",  'light': "#FAFAFA",  'mirage': "#192029"}
 
 let s:palette.comment   = {'dark': "#5C6773",  'light': "#ABB0B6",  'mirage': "#5C6773"}
 let s:palette.markup    = {'dark': "#F07178",  'light': "#F07178",  'mirage': "#F07178"}
@@ -102,7 +102,7 @@ exe "hi! FoldColumn"    .s:fg_none        .s:bg_panel       .s:fmt_none
 exe "hi! SignColumn"    .s:fg_none        .s:bg_panel       .s:fmt_none
 "   Incsearch"
 
-exe "hi! MatchParen"    .s:fg_fg          .s:bg_bg          .s:fmt_none
+exe "hi! MatchParen"    .s:fg_fg          .s:bg_selection          .s:fmt_none
 exe "hi! ModeMsg"       .s:fg_string      .s:bg_none        .s:fmt_none
 exe "hi! MoreMsg"       .s:fg_string      .s:bg_none        .s:fmt_none
 exe "hi! NonText"       .s:fg_bg          .s:bg_none        .s:fmt_none
