@@ -18,7 +18,7 @@ let s:palette = {}
 " 1a1d26 (dark cold blue)
 " 21232A (xcode dark bg)
 
-let s:palette.bg        = {'dark': "#0F1419",  'light': "#FAFAFA",  'mirage': "#1d1f21"}  " 181e24
+let s:palette.bg        = {'dark': "#0F1419",  'light': "#FAFAFA",  'mirage': "#1a1a1a"}  "1d1f21, 181e24
 
 let s:palette.comment   = {'dark': "#5C6773",  'light': "#ABB0B6",  'mirage': "#5C6773"}
 let s:palette.markup    = {'dark': "#F07178",  'light': "#F07178",  'mirage': "#F07178"}
@@ -26,16 +26,17 @@ let s:palette.constant  = {'dark': "#FFEE99",  'light': "#A37ACC",  'mirage': "#
 let s:palette.operator  = {'dark': "#E7C547",  'light': "#36A3D9",  'mirage': "#80D4FF"}
 let s:palette.tag       = {'dark': "#36A3D9",  'light': "#36A3D9",  'mirage': "#5CCFE6"}
 let s:palette.regexp    = {'dark': "#95E6CB",  'light': "#4CBF99",  'mirage': "#95E6CB"}
-let s:palette.string    = {'dark': "#B8CC52",  'light': "#86B300",  'mirage': "#BBE67E"}
+let s:palette.string    = {'dark': "#B8CC52",  'light': "#86B300",  'mirage': "#e5b567"} " Original BBE67E
 let s:palette.function  = {'dark': "#FFB454",  'light': "#F29718",  'mirage': "#FFD57F"}
 let s:palette.special   = {'dark': "#E6B673",  'light': "#E6B673",  'mirage': "#FFC44C"}
-let s:palette.keyword   = {'dark': "#FF7733",  'light': "#FF7733",  'mirage': "#FFAE57"}
+let s:palette.keyword   = {'dark': "#FF7733",  'light': "#FF7733",  'mirage': "#e87d3e"} " Original FFAE57
 
 let s:palette.error     = {'dark': "#FF3333",  'light': "#FF3333",  'mirage': "#FF3333"}
 let s:palette.accent    = {'dark': "#F29718",  'light': "#FF6A00",  'mirage': "#FFCC66"}
 let s:palette.panel     = {'dark': "#14191F",  'light': "#FFFFFF",  'mirage': "#272D38"}
 let s:palette.guide     = {'dark': "#2D3640",  'light': "#D9D8D7",  'mirage': "#3D4751"}
 let s:palette.line      = {'dark': "#151A1E",  'light': "#F3F3F3",  'mirage': "#242B38"}
+let s:palette.conceal   = {'dark': "#151A1E",  'light': "#F3F3F3",  'mirage': "#232528"}
 let s:palette.selection = {'dark': "#253340",  'light': "#F0EEE4",  'mirage': "#343F4C"}
 let s:palette.fg        = {'dark': "#E6E1CF",  'light': "#5C6773",  'mirage': "#D9D7CE"}
 let s:palette.fg_idle   = {'dark': "#3E4B59",  'light': "#828C99",  'mirage': "#607080"}
@@ -110,6 +111,7 @@ exe "hi! MatchParen"    .s:fg_fg          .s:bg_selection          .s:fmt_none
 exe "hi! ModeMsg"       .s:fg_string      .s:bg_none        .s:fmt_none
 exe "hi! MoreMsg"       .s:fg_string      .s:bg_none        .s:fmt_none
 exe "hi! NonText"       .s:fg_bg          .s:bg_none        .s:fmt_none
+exe "hi! EndOfBuffer"   .s:fg_bg          .s:bg_none        .s:fmt_none
 exe "hi! Pmenu"         .s:fg_fg          .s:bg_selection   .s:fmt_none
 exe "hi! PmenuSel"      .s:fg_fg          .s:bg_selection   .s:fmt_revr
 "   PmenuSbar"
@@ -121,9 +123,9 @@ exe "hi! SpellCap"      .s:fg_tag         .s:bg_none        .s:fmt_undr
 exe "hi! SpellLocal"    .s:fg_keyword     .s:bg_none        .s:fmt_undr
 exe "hi! SpellBad"      .s:fg_error       .s:bg_none        .s:fmt_undr
 exe "hi! SpellRare"     .s:fg_regexp      .s:bg_none        .s:fmt_undr
-exe "hi! StatusLine"    .s:fg_fg          .s:bg_panel       .s:fmt_none
+exe "hi! StatusLine"    .s:fg_fg          .s:bg_conceal     .s:fmt_none
 exe "hi! StatusLineNC"  .s:fg_fg_idle     .s:bg_panel       .s:fmt_none
-exe "hi! WildMenu"      .s:fg_bg          .s:bg_markup      .s:fmt_none
+exe "hi! WildMenu"      .s:fg_bg          .s:bg_tag         .s:fmt_none
 exe "hi! TabLine"       .s:fg_fg_idle     .s:bg_bg          .s:fmt_none
 exe "hi! TabLineFill"   .s:fg_none        .s:bg_bg          .s:fmt_none
 exe "hi! TabLineSel"    .s:bg_none        .s:fg_fg          .s:fmt_none
@@ -192,7 +194,7 @@ exe "hi! qfLineNr"        .s:fg_keyword   .s:bg_none        .s:fmt_none
 "   qfLineNr"
 "   qfError"
 
-exe "hi! Conceal"         .s:fg_guide     .s:bg_none        .s:fmt_none
+exe "hi! Conceal"           .s:fg_guide   .s:bg_none        .s:fmt_none
 exe "hi! CursorLineConceal" .s:fg_guide   .s:bg_line        .s:fmt_none
 
 
