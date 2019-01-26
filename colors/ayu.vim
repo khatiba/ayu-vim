@@ -26,17 +26,18 @@ let s:palette.constant  = {'dark': "#FFEE99",  'light': "#A37ACC",  'mirage': "#
 let s:palette.operator  = {'dark': "#E7C547",  'light': "#36A3D9",  'mirage': "#80D4FF"}
 let s:palette.tag       = {'dark': "#36A3D9",  'light': "#36A3D9",  'mirage': "#5CCFE6"}
 let s:palette.regexp    = {'dark': "#95E6CB",  'light': "#4CBF99",  'mirage': "#95E6CB"}
-let s:palette.string    = {'dark': "#B8CC52",  'light': "#86B300",  'mirage': "#e5b567"} " Original BBE67E
+let s:palette.string    = {'dark': "#B8CC52",  'light': "#86B300",  'mirage': "#BBE67E"} " Orange: e5b567
+let s:palette.green     = {'dark': "#B8CC52",  'light': "#86B300",  'mirage': "#BBE67E"}
 let s:palette.function  = {'dark': "#FFB454",  'light': "#F29718",  'mirage': "#FFD57F"}
 let s:palette.special   = {'dark': "#E6B673",  'light': "#E6B673",  'mirage': "#FFC44C"}
-let s:palette.keyword   = {'dark': "#FF7733",  'light': "#FF7733",  'mirage': "#e87d3e"} " Original FFAE57
+let s:palette.keyword   = {'dark': "#FF7733",  'light': "#FF7733",  'mirage': "#FFAE57"} " Darker: #e87d3e
 
 let s:palette.error     = {'dark': "#FF3333",  'light': "#FF3333",  'mirage': "#FF3333"}
 let s:palette.accent    = {'dark': "#F29718",  'light': "#FF6A00",  'mirage': "#FFCC66"}
 let s:palette.panel     = {'dark': "#14191F",  'light': "#FFFFFF",  'mirage': "#272D38"}
 let s:palette.guide     = {'dark': "#2D3640",  'light': "#D9D8D7",  'mirage': "#3D4751"}
 let s:palette.line      = {'dark': "#151A1E",  'light': "#F3F3F3",  'mirage': "#242B38"}
-let s:palette.conceal   = {'dark': "#151A1E",  'light': "#F3F3F3",  'mirage': "#232528"}
+let s:palette.conceal   = {'dark': "#151A1E",  'light': "#F3F3F3",  'mirage': "#202123"}
 let s:palette.selection = {'dark': "#253340",  'light': "#F0EEE4",  'mirage': "#343F4C"}
 let s:palette.fg        = {'dark': "#E6E1CF",  'light': "#5C6773",  'mirage': "#D9D7CE"}
 let s:palette.fg_idle   = {'dark': "#3E4B59",  'light': "#828C99",  'mirage': "#607080"}
@@ -101,9 +102,9 @@ exe "hi! DiffAdd"       .s:fg_string      .s:bg_panel       .s:fmt_none
 exe "hi! DiffChange"    .s:fg_tag         .s:bg_panel       .s:fmt_none
 exe "hi! DiffText"      .s:fg_fg          .s:bg_panel       .s:fmt_none
 exe "hi! ErrorMsg"      .s:fg_error       .s:bg_none        .s:fmt_none
-exe "hi! VertSplit"     .s:fg_panel       .s:bg_none        .s:fmt_none
-exe "hi! Folded"        .s:fg_fg_idle     .s:bg_panel       .s:fmt_none
-exe "hi! FoldColumn"    .s:fg_none        .s:bg_panel       .s:fmt_none
+exe "hi! VertSplit"     .s:fg_bg       .s:bg_none        .s:fmt_none
+exe "hi! Folded"        .s:fg_fg_idle     .s:bg_conceal       .s:fmt_none
+exe "hi! FoldColumn"    .s:fg_none        .s:bg_conceal       .s:fmt_none
 exe "hi! SignColumn"    .s:fg_none        .s:bg_panel       .s:fmt_none
 "   Incsearch"
 
@@ -117,14 +118,14 @@ exe "hi! PmenuSel"      .s:fg_fg          .s:bg_selection   .s:fmt_revr
 "   PmenuSbar"
 "   PmenuThumb"
 exe "hi! Question"      .s:fg_string      .s:bg_none        .s:fmt_none
-exe "hi! Search"        .s:fg_bg          .s:bg_constant    .s:fmt_none
+exe "hi! Search"        .s:fg_bg          .s:bg_keyword     .s:fmt_none
 exe "hi! SpecialKey"    .s:fg_selection   .s:bg_none        .s:fmt_none
 exe "hi! SpellCap"      .s:fg_tag         .s:bg_none        .s:fmt_undr
 exe "hi! SpellLocal"    .s:fg_keyword     .s:bg_none        .s:fmt_undr
 exe "hi! SpellBad"      .s:fg_error       .s:bg_none        .s:fmt_undr
 exe "hi! SpellRare"     .s:fg_regexp      .s:bg_none        .s:fmt_undr
-exe "hi! StatusLine"    .s:fg_fg          .s:bg_conceal     .s:fmt_none
-exe "hi! StatusLineNC"  .s:fg_fg_idle     .s:bg_panel       .s:fmt_none
+exe "hi! StatusLine"    .s:fg_fg_idle     .s:bg_bg          .s:fmt_none
+exe "hi! StatusLineNC"  .s:fg_panel       .s:bg_bg          .s:fmt_none
 exe "hi! WildMenu"      .s:fg_bg          .s:bg_tag         .s:fmt_none
 exe "hi! TabLine"       .s:fg_fg_idle     .s:bg_bg          .s:fmt_none
 exe "hi! TabLineFill"   .s:fg_none        .s:bg_bg          .s:fmt_none
@@ -197,6 +198,9 @@ exe "hi! qfLineNr"        .s:fg_keyword   .s:bg_none        .s:fmt_none
 exe "hi! Conceal"           .s:fg_guide   .s:bg_none        .s:fmt_none
 exe "hi! CursorLineConceal" .s:fg_guide   .s:bg_line        .s:fmt_none
 
+exe "hi! StatusLineTerm"    .s:fg_bg      .s:bg_operator       .s:fmt_none
+exe "hi! StatusLineTermNC"  .s:fg_panel   .s:bg_operator        .s:fmt_none
+
 
 " Terminal in NVIM
 " ---------
@@ -222,23 +226,9 @@ if has("nvim")
 endif
 
 
-" NerdTree
-" ---------
-exe "hi! NERDTreeOpenable"          .s:fg_fg_idle     .s:bg_none        .s:fmt_none
-exe "hi! NERDTreeClosable"          .s:fg_accent      .s:bg_none        .s:fmt_none
-" exe "hi! NERDTreeBookmarksHeader"   .s:fg_pink        .s:bg_none        .s:fmt_none
-" exe "hi! NERDTreeBookmarksLeader"   .s:fg_bg          .s:bg_none        .s:fmt_none
-" exe "hi! NERDTreeBookmarkName"      .s:fg_keyword     .s:bg_none        .s:fmt_none
-" exe "hi! NERDTreeCWD"               .s:fg_pink        .s:bg_none        .s:fmt_none
-exe "hi! NERDTreeUp"                .s:fg_fg_idle    .s:bg_none        .s:fmt_none
-exe "hi! NERDTreeDir"               .s:fg_fg_idle    .s:bg_none        .s:fmt_none
-exe "hi! NERDTreeFile"              .s:fg_fg_idle    .s:bg_none        .s:fmt_none
-exe "hi! NERDTreeDirSlash"          .s:fg_guide      .s:bg_none        .s:fmt_none
-
-
 " GitGutter
 " ---------
-exe "hi! GitGutterAdd"          .s:fg_string     .s:bg_none        .s:fmt_none
+exe "hi! GitGutterAdd"          .s:fg_green      .s:bg_none        .s:fmt_none
 exe "hi! GitGutterChange"       .s:fg_tag        .s:bg_none        .s:fmt_none
 exe "hi! GitGutterDelete"       .s:fg_markup     .s:bg_none        .s:fmt_none
 exe "hi! GitGutterChangeDelete" .s:fg_function   .s:bg_none        .s:fmt_none
