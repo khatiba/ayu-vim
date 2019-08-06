@@ -100,8 +100,8 @@ exe "hi! DiffAdd"       .s:fg_string      .s:bg_panel       .s:fmt_none
 exe "hi! DiffChange"    .s:fg_tag         .s:bg_panel       .s:fmt_none
 exe "hi! DiffText"      .s:fg_fg          .s:bg_panel       .s:fmt_none
 exe "hi! ErrorMsg"      .s:fg_error       .s:bg_none        .s:fmt_none
-exe "hi! VertSplit"     .s:fg_panel       .s:bg_none        .s:fmt_none
-exe "hi! Folded"        .s:fg_fg_idle     .s:bg_panel       .s:fmt_none
+exe "hi! VertSplit"     .s:fg_line       .s:bg_none        .s:fmt_none
+exe "hi! Folded"        .s:fg_fg_idle     .s:bg_line       .s:fmt_none
 exe "hi! FoldColumn"    .s:fg_none        .s:bg_panel       .s:fmt_none
 exe "hi! SignColumn"    .s:fg_none        .s:bg_panel       .s:fmt_none
 "   Incsearch"
@@ -115,14 +115,14 @@ exe "hi! PmenuSel"      .s:fg_fg          .s:bg_selection   .s:fmt_revr
 "   PmenuSbar"
 "   PmenuThumb"
 exe "hi! Question"      .s:fg_string      .s:bg_none        .s:fmt_none
-exe "hi! Search"        .s:fg_bg          .s:bg_constant    .s:fmt_none
+exe "hi! Search"        .s:fg_bg          .s:bg_markup    .s:fmt_none
 exe "hi! SpecialKey"    .s:fg_selection   .s:bg_none        .s:fmt_none
 exe "hi! SpellCap"      .s:fg_tag         .s:bg_none        .s:fmt_undr
 exe "hi! SpellLocal"    .s:fg_keyword     .s:bg_none        .s:fmt_undr
 exe "hi! SpellBad"      .s:fg_error       .s:bg_none        .s:fmt_undr
 exe "hi! SpellRare"     .s:fg_regexp      .s:bg_none        .s:fmt_undr
-exe "hi! StatusLine"    .s:fg_fg          .s:bg_panel       .s:fmt_none
-exe "hi! StatusLineNC"  .s:fg_fg_idle     .s:bg_panel       .s:fmt_none
+exe "hi! StatusLine"    .s:fg_fg          .s:bg_none       .s:fmt_none
+exe "hi! StatusLineNC"  .s:fg_selection     .s:bg_none       .s:fmt_none
 exe "hi! WildMenu"      .s:fg_bg          .s:bg_markup      .s:fmt_none
 exe "hi! TabLine"       .s:fg_fg_idle     .s:bg_bg          .s:fmt_none
 exe "hi! TabLineFill"   .s:fg_none        .s:bg_bg          .s:fmt_none
